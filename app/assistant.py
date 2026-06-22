@@ -1,42 +1,22 @@
-"""Baseline assistant entrypoint: route intent, then run a bounded tool-calling loop."""
+"""Assistant entrypoint, backed by the LangGraph stateful orchestration."""
 
 from __future__ import annotations
 
-import json
+from langchain_core.messages import HumanMessage
 
-from langchain_core.messages import AIMessage, BaseMessage, HumanMessage, SystemMessage, ToolMessage
-
-from app.llm import get_chat_model
-from app.prompts import SYSTEM_PROMPT
-from app.router import classify_intent
-from tools import ALL_TOOLS
-
-MAX_TOOL_ITERATIONS = 3
-
-TOOLS_BY_NAME = {t.name: t for t in ALL_TOOLS}
+from app.graph import COMPILED_GRAPH
 
 
-def handle_message(message: str) -> dict:
-    """Classify intent, then let the model call tools until it has a grounded answer."""
-    intent = classify_intent(message)
+def handle_message(message: str, thread_id: str = "default") -> dict:
+    """Send one user message into the assistant's conversation graph.
 
-    llm = get_chat_model().bind_tools(ALL_TOOLS)
-    messages: list[BaseMessage] = [
-        SystemMessage(content=SYSTEM_PROMPT),
-        HumanMessage(content=message),
-    ]
-
-    response: AIMessage = llm.invoke(messages)
-    messages.append(response)
-
-    for _ in range(MAX_TOOL_ITERATIONS):
-        if not response.tool_calls:
-            break
-        for call in response.tool_calls:
-            tool = TOOLS_BY_NAME[call["name"]]
-            result = tool.invoke(call["args"])
-            messages.append(ToolMessage(content=json.dumps(result), tool_call_id=call["id"]))
-        response = llm.invoke(messages)
-        messages.append(response)
-
-    return {"intent": intent, "reply": response.content, "messages": messages}
+    `thread_id` identifies the conversation. Calling this again with the
+    same `thread_id` resumes from the prior turns (via the graph's
+    checkpointer), which is what makes multi-turn clarification work:
+    a first call can come back with a clarifying question, and a second
+    call with the missing detail picks up where that left off.
+    """
+    config = {"configurable": {"thread_id": thread_id}}
+    result = COMPILED_GRAPH.invoke({"messages": [HumanMessage(content=message)]}, config=config)
+    reply = result["messages"][-1]
+    return {"intent": result.get("intent"), "reply": reply.content, "messages": result["messages"]}

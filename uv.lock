@@ -369,6 +369,7 @@ dependencies = [
     { name = "pytest" },
     { name = "python-dotenv" },
     { name = "streamlit" },
+    { name = "typing-extensions" },
 ]
 
 [package.metadata]
@@ -382,6 +383,7 @@ requires-dist = [
     { name = "pytest", specifier = ">=8.0" },
     { name = "python-dotenv", specifier = ">=1.0" },
     { name = "streamlit", specifier = ">=1.38" },
+    { name = "typing-extensions", specifier = ">=4.12" },
 ]
 
 [[package]]
