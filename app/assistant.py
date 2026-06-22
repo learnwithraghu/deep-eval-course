@@ -2,9 +2,7 @@
 
 from __future__ import annotations
 
-from langchain_core.messages import HumanMessage
-
-from app.graph import COMPILED_GRAPH
+from app.tracing import traced_invoke
 
 
 def handle_message(message: str, thread_id: str = "default") -> dict:
@@ -15,8 +13,8 @@ def handle_message(message: str, thread_id: str = "default") -> dict:
     checkpointer), which is what makes multi-turn clarification work:
     a first call can come back with a clarifying question, and a second
     call with the missing detail picks up where that left off.
+
+    Every call is traced: tagged for LangSmith and appended to a local
+    JSONL trace export (see app/tracing.py).
     """
-    config = {"configurable": {"thread_id": thread_id}}
-    result = COMPILED_GRAPH.invoke({"messages": [HumanMessage(content=message)]}, config=config)
-    reply = result["messages"][-1]
-    return {"intent": result.get("intent"), "reply": reply.content, "messages": result["messages"]}
+    return traced_invoke(message, thread_id=thread_id)

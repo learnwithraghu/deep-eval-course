@@ -6,11 +6,11 @@
 
 Because this is a large build, it's broken into discrete sessions, each independently completable in one sitting, each ending in a concrete "done check." Sessions map onto course sections so the code and lessons stay in lockstep, but the code itself lives outside `sections/**` (this plan does not edit any `sections/**/README.md` files).
 
-## Progress (updated after Session 5b)
+## Progress (updated after Session 6)
 
-- **Done:** Sessions 0-5b, plus a demo-guides layer not in the original plan (see Session Plan note below).
-- **Pending/blocked:** `OPENAI_API_KEY` is not yet configured locally. Sessions 3, 4, and 5's live done-checks (5 hardcoded messages; multi-turn clarification; ambiguous-query clarification), plus 5b's live chat exchange, are written and structurally verified (imports/graph-compile/stubbed-LLM/server-boot checks all pass with no API calls) but haven't been run live yet. Per explicit user instruction: don't block future sessions on this missing key — keep writing code, note what's pending, move on. The user will add keys to `.env` themselves when ready.
-- **Next up:** Session 6 — LangSmith Tracing + Trace Schema.
+- **Done:** Sessions 0-6, plus a demo-guides layer not in the original plan (see Session Plan note below).
+- **Pending/blocked:** `OPENAI_API_KEY` (and LangSmith credentials, for Session 6's LangSmith-run half) are not yet configured locally. All live, API-dependent done-checks since Session 3 are written and structurally verified (imports/graph-compile/stubbed-LLM/server-boot/JSONL-export checks all pass with no API calls) but haven't been run live yet. Per explicit user instruction: don't block future sessions on this missing key — keep writing code, note what's pending, move on. The user will add keys to `.env` themselves when ready.
+- **Next up:** Session 7 — Latency/Tool Metadata + Failure Capture.
 
 ## Decisions agreed with user
 
@@ -76,6 +76,7 @@ Defaults adopted without a separate question (low-stakes / clearly implied by ex
 **Session 6 — LangSmith Tracing + Trace Schema** (→ Section 3.01–02)
 - Enable LangSmith auto-tracing (env vars), `app/trace_schema.py` (the conceptual event schema taught in lessons), `app/tracing.py` — thin wrapper that tags LangSmith runs with course-relevant metadata AND writes a local JSONL export (trace_id, event_type, payload) so later tooling doesn't depend on the LangSmith API.
 - Done: one assistant call appears as a structured run in LangSmith **and** produces a matching local JSONL trace file.
+- **Status: done.** LangSmith env vars were already documented in `.env.example` since Session 0 — no change needed there. `app/trace_schema.py` defines `TraceEvent`; `app/tracing.py:traced_invoke` tags the graph's `config` (tags/metadata/run_name) and appends `input`/`tool_call`/`tool_result`/`output` events to `data/traces/traces.jsonl` (gitignored — runtime artifact, not a fixture). `app/assistant.py:handle_message` now delegates to it, so every call (including from Streamlit) is traced automatically. JSONL export verified end-to-end with a stubbed LLM call (4 correctly-ordered events, no API key needed). LangSmith-run half is pending `OPENAI_API_KEY` + LangSmith credentials for a live run.
 
 **Session 7 — Latency/Tool Metadata + Failure Capture** (→ Section 3.03–04)
 - Extend trace export with latency_ms, tool args/result size. `app/failure_capture.py` (scans JSONL traces for failure signals). `data/failure_bank/` (tagged failure examples). `docs/failure_taxonomy.md`.
