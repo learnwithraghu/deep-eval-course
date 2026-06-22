@@ -6,11 +6,11 @@
 
 Because this is a large build, it's broken into discrete sessions, each independently completable in one sitting, each ending in a concrete "done check." Sessions map onto course sections so the code and lessons stay in lockstep, but the code itself lives outside `sections/**` (this plan does not edit any `sections/**/README.md` files).
 
-## Progress (updated after Session 4)
+## Progress (updated after Session 5)
 
-- **Done:** Sessions 0-4, plus a demo-guides layer not in the original plan (see Session Plan note below). All pushed to `origin/main`, commits `8d8491e`..`1b68bbb`.
-- **Pending/blocked:** `OPENAI_API_KEY` is not yet configured locally. Sessions 3 and 4's live done-checks (5 hardcoded messages routing correctly; multi-turn clarification scenario) are written and structurally verified (imports/graph-compile checks pass with no API calls) but haven't been run live yet. Per explicit user instruction: don't block future sessions on this missing key — keep writing code, note what's pending, move on. The user will add keys to `.env` themselves when ready.
-- **Next up:** Session 5 — Grounded Responses & Safe Fallback.
+- **Done:** Sessions 0-5, plus a demo-guides layer not in the original plan (see Session Plan note below).
+- **Pending/blocked:** `OPENAI_API_KEY` is not yet configured locally. Sessions 3 and 4's live done-checks (5 hardcoded messages routing correctly; multi-turn clarification scenario), and Session 5's ambiguous-query clarification check, are written and structurally verified (imports/graph-compile/stubbed-LLM checks pass with no API calls) but haven't been run live yet. Per explicit user instruction: don't block future sessions on this missing key — keep writing code, note what's pending, move on. The user will add keys to `.env` themselves when ready.
+- **Next up:** Session 5b — Streamlit Demo UI, then Session 6 — LangSmith Tracing.
 
 ## Decisions agreed with user
 
@@ -66,6 +66,7 @@ Defaults adopted without a separate question (low-stakes / clearly implied by ex
 **Session 5 — Grounded Responses & Safe Fallback** (→ Section 2.04)
 - Finalize `app/prompts.py` (cite-only-tool-data policy, fallback/escalation phrasing), `app/fallback.py` (centralized fallback templates), `docs/assistant_spec.md` (the product spec artifact).
 - Done: unknown shipment ID and ambiguous query both trigger correct fallback/clarification, never fabricated data.
+- **Status: done.** Not-found path is now structural: `app/graph.py` routes any `{"found": false}` tool result straight to a deterministic `fallback` node (`app/fallback.py`), bypassing the model entirely for that turn — verified end-to-end with a stubbed LLM call, no API key needed (`agent calls: 1`, exact fallback text returned). Ambiguous-query clarification remains LLM-authored and is pending `OPENAI_API_KEY` for a live run. Demo guide + index entry added (Session 5 row in `docs/demos/README.md`).
 
 **Session 5b — Streamlit Demo UI** (slot in alongside Session 5)
 - `app/streamlit_app.py` — chat UI calling `app/assistant.py`.
