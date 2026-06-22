@@ -1,0 +1,90 @@
+[
+  {
+    "shipment_id": "SHP-1001",
+    "customer_id": "CUST-200",
+    "status": "in_transit",
+    "carrier": "FastFreight",
+    "origin": "Shenzhen, CN",
+    "destination": "Austin, TX, US",
+    "ship_date": "2026-06-10",
+    "estimated_delivery": "2026-06-20",
+    "actual_delivery": null,
+    "last_known_location": "Memphis, TN, US",
+    "delay_reason": null,
+    "tracking_events": [
+      {"timestamp": "2026-06-10T08:00:00Z", "location": "Shenzhen, CN", "event": "Package picked up"},
+      {"timestamp": "2026-06-13T14:30:00Z", "location": "Hong Kong, CN", "event": "Departed origin facility"},
+      {"timestamp": "2026-06-18T09:15:00Z", "location": "Memphis, TN, US", "event": "Arrived at sorting facility"}
+    ]
+  },
+  {
+    "shipment_id": "SHP-1002",
+    "customer_id": "CUST-201",
+    "status": "delayed",
+    "carrier": "FastFreight",
+    "origin": "Rotterdam, NL",
+    "destination": "Chicago, IL, US",
+    "ship_date": "2026-06-01",
+    "estimated_delivery": "2026-06-12",
+    "actual_delivery": null,
+    "last_known_location": "Customs hold, Newark, NJ, US",
+    "delay_reason": "customs_inspection",
+    "tracking_events": [
+      {"timestamp": "2026-06-01T07:00:00Z", "location": "Rotterdam, NL", "event": "Package picked up"},
+      {"timestamp": "2026-06-08T11:00:00Z", "location": "Newark, NJ, US", "event": "Arrived at customs"},
+      {"timestamp": "2026-06-12T16:45:00Z", "location": "Newark, NJ, US", "event": "Held for customs inspection"}
+    ]
+  },
+  {
+    "shipment_id": "SHP-1003",
+    "customer_id": "CUST-202",
+    "status": "delivered",
+    "carrier": "QuickShip",
+    "origin": "Los Angeles, CA, US",
+    "destination": "Seattle, WA, US",
+    "ship_date": "2026-06-05",
+    "estimated_delivery": "2026-06-09",
+    "actual_delivery": "2026-06-08",
+    "last_known_location": "Seattle, WA, US",
+    "delay_reason": null,
+    "tracking_events": [
+      {"timestamp": "2026-06-05T10:00:00Z", "location": "Los Angeles, CA, US", "event": "Package picked up"},
+      {"timestamp": "2026-06-07T13:20:00Z", "location": "Portland, OR, US", "event": "Arrived at sorting facility"},
+      {"timestamp": "2026-06-08T17:50:00Z", "location": "Seattle, WA, US", "event": "Delivered"}
+    ]
+  },
+  {
+    "shipment_id": "SHP-1004",
+    "customer_id": "CUST-200",
+    "status": "delivered",
+    "carrier": "QuickShip",
+    "origin": "Denver, CO, US",
+    "destination": "Austin, TX, US",
+    "ship_date": "2026-05-20",
+    "estimated_delivery": "2026-05-25",
+    "actual_delivery": "2026-05-24",
+    "last_known_location": "Austin, TX, US",
+    "delay_reason": null,
+    "tracking_events": [
+      {"timestamp": "2026-05-20T09:00:00Z", "location": "Denver, CO, US", "event": "Package picked up"},
+      {"timestamp": "2026-05-24T15:10:00Z", "location": "Austin, TX, US", "event": "Delivered"}
+    ]
+  },
+  {
+    "shipment_id": "SHP-1005",
+    "customer_id": "CUST-203",
+    "status": "exception",
+    "carrier": "FastFreight",
+    "origin": "Mumbai, IN",
+    "destination": "New York, NY, US",
+    "ship_date": "2026-06-14",
+    "estimated_delivery": "2026-06-24",
+    "actual_delivery": null,
+    "last_known_location": "Mumbai, IN",
+    "delay_reason": "lost_in_transit",
+    "tracking_events": [
+      {"timestamp": "2026-06-14T06:00:00Z", "location": "Mumbai, IN", "event": "Package picked up"},
+      {"timestamp": "2026-06-15T10:00:00Z", "location": "Mumbai, IN", "event": "Scan exception: package not found at facility"}
+    ]
+  }
+]

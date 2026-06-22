@@ -1,0 +1,56 @@
+[
+  {
+    "policy_id": "POL-REFUND-001",
+    "topic": "refund",
+    "summary": "Refunds are available for shipments that are lost, undelivered 30+ days past the estimated delivery date, or arrive damaged.",
+    "full_text": "Customers may request a refund if: (1) a shipment is marked 'exception' with a lost_in_transit reason, (2) a shipment has not arrived more than 30 days after its estimated delivery date, or (3) the customer reports the contents arrived damaged with photo evidence. Refunds are issued to the original payment method within 5-7 business days of approval. Refund requests must reference a valid shipment ID.",
+    "conditions": [
+      "shipment must be lost, severely delayed (30+ days), or damaged",
+      "valid shipment ID required",
+      "damage claims require photo evidence submitted via support ticket"
+    ]
+  },
+  {
+    "policy_id": "POL-DELAY-001",
+    "topic": "delay",
+    "summary": "Delays caused by customs holds or carrier exceptions are communicated to the customer with an updated estimate when available.",
+    "full_text": "When a shipment is delayed due to customs inspection, the assistant should explain that customs holds are outside carrier control and typically resolve within 3-10 business days. When a shipment is delayed due to a carrier exception (e.g. lost in transit), the assistant should not promise a delivery date and should offer escalation or refund guidance instead.",
+    "conditions": [
+      "customs delays: explain typical 3-10 business day resolution window",
+      "carrier exceptions: do not promise a delivery date",
+      "do not fabricate a new estimated delivery date if none exists in the shipment record"
+    ]
+  },
+  {
+    "policy_id": "POL-CUSTOMS-001",
+    "topic": "customs",
+    "summary": "Customs holds require the customer to confirm no action is needed on their end unless contacted directly by customs or the carrier.",
+    "full_text": "Most customs holds are routine and resolve without customer action. Customers should only be told to act (e.g. provide documentation) if the shipment record or a related ticket explicitly indicates customs has requested it. The assistant must not invent customs documentation requirements that are not present in the shipment or ticket data.",
+    "conditions": [
+      "no customer action required unless explicitly stated in shipment/ticket data",
+      "never invent documentation requirements"
+    ]
+  },
+  {
+    "policy_id": "POL-ESCALATION-001",
+    "topic": "escalation",
+    "summary": "Escalate to a human agent when the assistant cannot resolve the request with available tools and data.",
+    "full_text": "The assistant should escalate when: the shipment, customer, or policy ID cannot be found; the customer disputes a charge or delivery status that contradicts the record; the request involves a refund decision above policy-defined automatic approval; or the customer explicitly asks for a human. Escalation creates a ticket containing the customer's request, relevant shipment/customer IDs, and the reason for escalation.",
+    "conditions": [
+      "missing or not-found records",
+      "disputes that contradict backend data",
+      "explicit human request",
+      "refund decisions outside policy auto-approval"
+    ]
+  },
+  {
+    "policy_id": "POL-GENERAL-001",
+    "topic": "general",
+    "summary": "The assistant must only state facts present in tool results and must say so explicitly when information is unavailable.",
+    "full_text": "The assistant must never fabricate shipment statuses, dates, locations, or policy terms. If a lookup returns not-found, the assistant must clearly tell the customer the record could not be found and offer escalation, rather than guessing or inventing plausible-sounding details.",
+    "conditions": [
+      "no fabrication of any kind",
+      "explicit not-found disclosure to the customer"
+    ]
+  }
+]
