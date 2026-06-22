@@ -133,4 +133,4 @@ Defaults adopted without a separate question (low-stakes / clearly implied by ex
 
 - Work proceeds session-by-session in new conversations; each session is self-contained enough to start cold using this plan file plus the repo state at the time.
 - No `sections/**/README.md` files are modified by this build — only root-level config, `app/`, `tools/`, `data/`, `evals/`, `reports/`, `docs/`, `.github/workflows/`, and (for demo guides only) new non-`README.md` files inside `sections/**`.
-- Commits so far: `8d8491e`..`3867838` on `main`. A fresh session should run `git log --oneline` to confirm this matches the repo's actual state before continuing, then proceed to Session 6.
+- Commits so far: `8d8491e`..`1b005c0` on `main`. A fresh session should run `git log --oneline` to confirm this matches the repo's actual state before continuing, then proceed to Session 7.
