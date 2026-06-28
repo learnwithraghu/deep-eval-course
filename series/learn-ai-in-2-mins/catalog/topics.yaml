@@ -1,0 +1,438 @@
+series: "Learn AI in 2 Mins"
+totalEpisodes: 100
+
+themes:
+  - id: foundations
+    name: Foundations
+    range: "001-015"
+    episodes:
+      - id: "001"
+        slug: what-is-an-llm
+        title: "What is an LLM?"
+        status: draft
+      - id: "002"
+        slug: what-is-a-neural-network
+        title: "What is a Neural Network?"
+        status: planned
+      - id: "003"
+        slug: ai-vs-ml-vs-deep-learning
+        title: "AI vs Machine Learning vs Deep Learning"
+        status: planned
+      - id: "004"
+        slug: what-is-training
+        title: "What is Training?"
+        status: planned
+      - id: "005"
+        slug: what-is-inference
+        title: "What is Inference?"
+        status: planned
+      - id: "006"
+        slug: what-is-a-token
+        title: "What is a Token?"
+        status: planned
+      - id: "007"
+        slug: what-are-embeddings
+        title: "What are Embeddings?"
+        status: planned
+      - id: "008"
+        slug: what-is-a-dataset
+        title: "What is a Dataset?"
+        status: planned
+      - id: "009"
+        slug: what-is-a-model-parameter
+        title: "What is a Model Parameter?"
+        status: planned
+      - id: "010"
+        slug: what-is-supervised-learning
+        title: "What is Supervised Learning?"
+        status: planned
+      - id: "011"
+        slug: what-is-unsupervised-learning
+        title: "What is Unsupervised Learning?"
+        status: planned
+      - id: "012"
+        slug: what-is-reinforcement-learning
+        title: "What is Reinforcement Learning?"
+        status: planned
+      - id: "013"
+        slug: what-is-overfitting
+        title: "What is Overfitting?"
+        status: planned
+      - id: "014"
+        slug: what-is-a-loss-function
+        title: "What is a Loss Function?"
+        status: planned
+      - id: "015"
+        slug: what-is-gradient-descent
+        title: "What is Gradient Descent?"
+        status: planned
+
+  - id: llms_and_nlp
+    name: "LLMs & NLP"
+    range: "016-030"
+    episodes:
+      - id: "016"
+        slug: what-is-a-transformer
+        title: "What is a Transformer?"
+        status: planned
+      - id: "017"
+        slug: what-is-attention
+        title: "What is Attention?"
+        status: planned
+      - id: "018"
+        slug: what-is-the-context-window
+        title: "What is the Context Window?"
+        status: planned
+      - id: "019"
+        slug: what-is-fine-tuning
+        title: "What is Fine-Tuning?"
+        status: planned
+      - id: "020"
+        slug: what-is-rag
+        title: "What is RAG?"
+        status: planned
+      - id: "021"
+        slug: what-is-a-hallucination
+        title: "What is a Hallucination?"
+        status: planned
+      - id: "022"
+        slug: what-is-prompt-engineering
+        title: "What is Prompt Engineering?"
+        status: planned
+      - id: "023"
+        slug: what-is-zero-shot-learning
+        title: "What is Zero-Shot Learning?"
+        status: planned
+      - id: "024"
+        slug: what-is-few-shot-learning
+        title: "What is Few-Shot Learning?"
+        status: planned
+      - id: "025"
+        slug: what-is-tokenization
+        title: "What is Tokenization?"
+        status: planned
+      - id: "026"
+        slug: bert-vs-gpt
+        title: "What is BERT vs GPT?"
+        status: planned
+      - id: "027"
+        slug: what-is-temperature-in-llms
+        title: "What is Temperature in LLMs?"
+        status: planned
+      - id: "028"
+        slug: what-is-top-p-sampling
+        title: "What is Top-P Sampling?"
+        status: planned
+      - id: "029"
+        slug: what-is-chain-of-thought
+        title: "What is Chain of Thought?"
+        status: planned
+      - id: "030"
+        slug: system-vs-user-prompts
+        title: "What is System vs User Prompts?"
+        status: planned
+
+  - id: generative_ai
+    name: "Generative AI"
+    range: "031-045"
+    episodes:
+      - id: "031"
+        slug: what-is-generative-ai
+        title: "What is Generative AI?"
+        status: planned
+      - id: "032"
+        slug: what-is-a-diffusion-model
+        title: "What is a Diffusion Model?"
+        status: planned
+      - id: "033"
+        slug: what-is-a-gan
+        title: "What is a GAN?"
+        status: planned
+      - id: "034"
+        slug: what-is-text-to-image
+        title: "What is Text-to-Image?"
+        status: planned
+      - id: "035"
+        slug: what-is-multimodal-ai
+        title: "What is Multimodal AI?"
+        status: planned
+      - id: "036"
+        slug: what-is-stable-diffusion
+        title: "What is Stable Diffusion?"
+        status: planned
+      - id: "037"
+        slug: what-is-dalle
+        title: "What is DALL-E?"
+        status: planned
+      - id: "038"
+        slug: what-is-inpainting
+        title: "What is Inpainting?"
+        status: planned
+      - id: "039"
+        slug: what-is-lora
+        title: "What is LoRA?"
+        status: planned
+      - id: "040"
+        slug: what-is-a-seed-in-image-gen
+        title: "What is a Seed in Image Generation?"
+        status: planned
+      - id: "041"
+        slug: what-is-a-latent-space
+        title: "What is a Latent Space?"
+        status: planned
+      - id: "042"
+        slug: what-is-style-transfer
+        title: "What is Style Transfer?"
+        status: planned
+      - id: "043"
+        slug: what-is-voice-cloning
+        title: "What is Voice Cloning?"
+        status: planned
+      - id: "044"
+        slug: what-is-music-generation
+        title: "What is Music Generation?"
+        status: planned
+      - id: "045"
+        slug: what-is-video-generation
+        title: "What is Video Generation?"
+        status: planned
+
+  - id: agents_and_tools
+    name: "Agents & Tools"
+    range: "046-060"
+    episodes:
+      - id: "046"
+        slug: what-is-an-ai-agent
+        title: "What is an AI Agent?"
+        status: planned
+      - id: "047"
+        slug: what-is-tool-use-in-llms
+        title: "What is Tool Use in LLMs?"
+        status: planned
+      - id: "048"
+        slug: what-is-function-calling
+        title: "What is Function Calling?"
+        status: planned
+      - id: "049"
+        slug: what-is-mcp
+        title: "What is MCP?"
+        status: planned
+      - id: "050"
+        slug: what-is-agent-memory
+        title: "What is Agent Memory?"
+        status: planned
+      - id: "051"
+        slug: what-is-planning-in-agents
+        title: "What is Planning in Agents?"
+        status: planned
+      - id: "052"
+        slug: what-is-react
+        title: "What is ReAct?"
+        status: planned
+      - id: "053"
+        slug: what-is-a-vector-database
+        title: "What is a Vector Database?"
+        status: planned
+      - id: "054"
+        slug: what-is-semantic-search
+        title: "What is Semantic Search?"
+        status: planned
+      - id: "055"
+        slug: what-is-chunking
+        title: "What is Chunking?"
+        status: planned
+      - id: "056"
+        slug: what-is-an-api-for-ai
+        title: "What is an API for AI?"
+        status: planned
+      - id: "057"
+        slug: what-is-langchain
+        title: "What is LangChain?"
+        status: planned
+      - id: "058"
+        slug: what-is-langgraph
+        title: "What is LangGraph?"
+        status: planned
+      - id: "059"
+        slug: what-is-crewai
+        title: "What is CrewAI?"
+        status: planned
+      - id: "060"
+        slug: what-is-autonomous-agents
+        title: "What is Autonomous Agents?"
+        status: planned
+
+  - id: vision_and_audio
+    name: "Vision & Audio"
+    range: "061-075"
+    episodes:
+      - id: "061"
+        slug: what-is-computer-vision
+        title: "What is Computer Vision?"
+        status: planned
+      - id: "062"
+        slug: what-is-a-cnn
+        title: "What is a CNN?"
+        status: planned
+      - id: "063"
+        slug: what-is-object-detection
+        title: "What is Object Detection?"
+        status: planned
+      - id: "064"
+        slug: what-is-image-classification
+        title: "What is Image Classification?"
+        status: planned
+      - id: "065"
+        slug: what-is-segmentation
+        title: "What is Segmentation?"
+        status: planned
+      - id: "066"
+        slug: what-is-ocr
+        title: "What is OCR?"
+        status: planned
+      - id: "067"
+        slug: what-is-speech-to-text
+        title: "What is Speech-to-Text?"
+        status: planned
+      - id: "068"
+        slug: what-is-text-to-speech
+        title: "What is Text-to-Speech?"
+        status: planned
+      - id: "069"
+        slug: what-is-face-recognition
+        title: "What is Face Recognition?"
+        status: planned
+      - id: "070"
+        slug: what-is-pose-estimation
+        title: "What is Pose Estimation?"
+        status: planned
+      - id: "071"
+        slug: what-is-yolo
+        title: "What is YOLO?"
+        status: planned
+      - id: "072"
+        slug: what-is-opencv
+        title: "What is OpenCV?"
+        status: planned
+      - id: "073"
+        slug: what-is-audio-embeddings
+        title: "What is Audio Embeddings?"
+        status: planned
+      - id: "074"
+        slug: what-is-whisper
+        title: "What is Whisper?"
+        status: planned
+      - id: "075"
+        slug: what-is-clip
+        title: "What is CLIP?"
+        status: planned
+
+  - id: production_and_safety
+    name: "Production & Safety"
+    range: "076-090"
+    episodes:
+      - id: "076"
+        slug: what-are-ai-evals
+        title: "What are AI Evals?"
+        status: planned
+      - id: "077"
+        slug: what-are-guardrails
+        title: "What are Guardrails?"
+        status: planned
+      - id: "078"
+        slug: what-is-ai-bias
+        title: "What is AI Bias?"
+        status: planned
+      - id: "079"
+        slug: what-is-alignment
+        title: "What is Alignment?"
+        status: planned
+      - id: "080"
+        slug: what-is-red-teaming
+        title: "What is Red Teaming?"
+        status: planned
+      - id: "081"
+        slug: what-is-latency-in-ai
+        title: "What is Latency in AI?"
+        status: planned
+      - id: "082"
+        slug: what-is-ai-cost-optimization
+        title: "What is AI Cost Optimization?"
+        status: planned
+      - id: "083"
+        slug: what-is-model-quantization
+        title: "What is Model Quantization?"
+        status: planned
+      - id: "084"
+        slug: what-is-distillation
+        title: "What is Distillation?"
+        status: planned
+      - id: "085"
+        slug: what-is-ab-testing-for-ai
+        title: "What is A/B Testing for AI?"
+        status: planned
+      - id: "086"
+        slug: what-is-observability-in-ai
+        title: "What is Observability in AI?"
+        status: planned
+      - id: "087"
+        slug: what-is-data-poisoning
+        title: "What is Data Poisoning?"
+        status: planned
+      - id: "088"
+        slug: what-is-prompt-injection
+        title: "What is Prompt Injection?"
+        status: planned
+      - id: "089"
+        slug: what-is-ai-governance
+        title: "What is AI Governance?"
+        status: planned
+      - id: "090"
+        slug: what-is-responsible-ai
+        title: "What is Responsible AI?"
+        status: planned
+
+  - id: future_and_meta
+    name: "Future & Meta"
+    range: "091-100"
+    episodes:
+      - id: "091"
+        slug: open-vs-closed-models
+        title: "Open vs Closed Models"
+        status: planned
+      - id: "092"
+        slug: what-is-agi
+        title: "What is AGI?"
+        status: planned
+      - id: "093"
+        slug: what-is-narrow-ai
+        title: "What is Narrow AI?"
+        status: planned
+      - id: "094"
+        slug: what-is-the-ai-stack
+        title: "What is the AI Stack?"
+        status: planned
+      - id: "095"
+        slug: what-is-edge-ai
+        title: "What is Edge AI?"
+        status: planned
+      - id: "096"
+        slug: what-is-federated-learning
+        title: "What is Federated Learning?"
+        status: planned
+      - id: "097"
+        slug: what-is-synthetic-data
+        title: "What is Synthetic Data?"
+        status: planned
+      - id: "098"
+        slug: how-to-learn-ai-in-2025
+        title: "How to Learn AI in 2025"
+        status: planned
+      - id: "099"
+        slug: top-5-ai-myths-debunked
+        title: "Top 5 AI Myths Debunked"
+        status: planned
+      - id: "100"
+        slug: series-recap-100-concepts
+        title: "Series Recap — 100 Concepts in 2 Mins"
+        status: planned

@@ -1,0 +1,52 @@
+{
+  "name": "remotion",
+  "version": "1.0.0",
+  "description": "My Remotion video",
+  "repository": {},
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@remotion/animation-utils": "^4.0.484",
+    "@remotion/captions": "^4.0.484",
+    "@remotion/cli": "4.0.484",
+    "@remotion/google-fonts": "^4.0.484",
+    "@remotion/layout-utils": "^4.0.484",
+    "@remotion/lottie": "^4.0.484",
+    "@remotion/media-utils": "^4.0.484",
+    "@remotion/motion-blur": "^4.0.484",
+    "@remotion/noise": "^4.0.484",
+    "@remotion/paths": "^4.0.484",
+    "@remotion/shapes": "^4.0.484",
+    "@remotion/tailwind-v4": "4.0.484",
+    "@remotion/transitions": "^4.0.484",
+    "js-yaml": "^5.2.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.484",
+    "tailwindcss": "4.0.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.484",
+    "@types/js-yaml": "^4.0.9",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "9.19.0",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "sync": "node scripts/sync-episodes.mjs",
+    "sync:001": "node scripts/sync-episodes.mjs 001_what-is-an-llm",
+    "render": "node scripts/render-episode.mjs",
+    "render:001": "node scripts/render-episode.mjs 001_what-is-an-llm",
+    "dev": "npm run sync && remotion studio",
+    "dev:001": "npm run sync:001 && remotion studio --props='{\"episodeFolder\":\"001_what-is-an-llm\"}'",
+    "build": "remotion bundle",
+    "upgrade": "remotion upgrade",
+    "lint": "eslint src && tsc"
+  },
+  "sideEffects": [
+    "*.css"
+  ]
+}

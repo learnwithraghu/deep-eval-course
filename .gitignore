@@ -1,9 +1,32 @@
-.venv/
-__pycache__/
-*.pyc
+# Dependencies
+node_modules/
+
+# Environment
 .env
-.streamlit/
-*.egg-info/
-.pytest_cache/
+.env.local
+
+# Remotion build output
+out/
+dist/
+build/
+
+# Voiceover copies (source of truth is in episode folders)
+remotion/public/episodes/
+
+# OS
 .DS_Store
-data/traces/*.jsonl
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temp
+.tmp/
+temp/

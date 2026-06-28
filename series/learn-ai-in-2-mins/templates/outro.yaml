@@ -1,0 +1,39 @@
+# Shared series outro — reuse in every episode's final scene
+template:
+  id: outro
+  type: series_outro
+  durationMs: 10000
+
+voiceover: >
+  That's your concept for today. Follow for the next one — Learn AI in 2 Mins.
+
+captions:
+  - text: "That's your concept for today."
+    startMs: 0
+    endMs: 3500
+  - text: "Follow for the next one"
+    startMs: 3500
+    endMs: 6500
+  - text: "Learn AI in 2 Mins"
+    startMs: 6500
+    endMs: 10000
+
+visual:
+  layout: branded_card
+  background: gradient_dark_blue
+  elements:
+    - type: cta
+      text: "Follow for the next concept"
+      animation: pulse
+    - type: title
+      text: "Learn AI in 2 Mins"
+      animation: fadeIn
+    - type: badge
+      text: "Next episode coming soon"
+      animation: slideUp
+
+audio:
+  music: series_outro_sting
+  sfx:
+    - asset: subscribe_pop
+      startMs: 3500

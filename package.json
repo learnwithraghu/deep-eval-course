@@ -1,0 +1,8 @@
+{
+  "name": "youtube-ai-shorts-series",
+  "private": true,
+  "scripts": {
+    "video:001": "cd remotion && npm run render:001",
+    "video": "cd remotion && npm run render --"
+  }
+}

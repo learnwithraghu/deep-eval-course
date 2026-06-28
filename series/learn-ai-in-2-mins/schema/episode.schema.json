@@ -1,0 +1,201 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/youtube-ai-shorts-series/episode.schema.json",
+  "title": "Learn AI in 2 Mins — Episode Script",
+  "description": "Remotion-ready scene-based transcript for a 90-second YouTube Short",
+  "type": "object",
+  "required": ["episode", "scenes"],
+  "additionalProperties": false,
+  "properties": {
+    "episode": {
+      "type": "object",
+      "required": ["id", "slug", "title", "targetDurationMs", "series"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9]{3}$",
+          "description": "Zero-padded episode number, e.g. 001"
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "Kebab-case slug matching folder name"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "targetDurationMs": {
+          "type": "integer",
+          "minimum": 85000,
+          "maximum": 95000,
+          "description": "Target total duration in milliseconds (~90 seconds)"
+        },
+        "series": {
+          "type": "string",
+          "const": "Learn AI in 2 Mins"
+        },
+        "tone": {
+          "type": "string"
+        },
+        "wordCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "templateRefs": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "welcome": { "type": "string" },
+            "outro": { "type": "string" }
+          }
+        }
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "$ref": "#/$defs/scene"
+      }
+    }
+  },
+  "$defs": {
+    "scene": {
+      "type": "object",
+      "required": ["id", "type", "durationMs", "voiceover", "visual"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "series_intro",
+            "question_hook",
+            "concept_explain",
+            "metaphor_visual",
+            "comparison",
+            "key_takeaway",
+            "series_outro"
+          ]
+        },
+        "durationMs": {
+          "type": "integer",
+          "minimum": 1000
+        },
+        "voiceover": {
+          "type": "string",
+          "minLength": 1
+        },
+        "captions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/caption"
+          }
+        },
+        "visual": {
+          "$ref": "#/$defs/visual"
+        },
+        "audio": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "music": { "type": "string" },
+            "sfx": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["asset", "startMs"],
+                "properties": {
+                  "asset": { "type": "string" },
+                  "startMs": { "type": "integer", "minimum": 0 }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "caption": {
+      "type": "object",
+      "required": ["text", "startMs", "endMs"],
+      "additionalProperties": false,
+      "properties": {
+        "text": { "type": "string" },
+        "startMs": { "type": "integer", "minimum": 0 },
+        "endMs": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "visual": {
+      "type": "object",
+      "required": ["layout"],
+      "properties": {
+        "layout": {
+          "type": "string",
+          "enum": [
+            "branded_card",
+            "split",
+            "infographic_stack",
+            "summary_card",
+            "comparison_side_by_side",
+            "full_bleed_metaphor"
+          ]
+        },
+        "background": { "type": "string" },
+        "metaphor": { "type": "string" },
+        "elements": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/visualElement" }
+        },
+        "steps": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/infographicStep" }
+        },
+        "bullets": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "callout": {
+          "type": "object",
+          "properties": {
+            "text": { "type": "string" },
+            "style": { "type": "string" }
+          }
+        },
+        "left": { "$ref": "#/$defs/visualElement" },
+        "right": { "$ref": "#/$defs/visualElement" }
+      }
+    },
+    "visualElement": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["title", "subtitle", "headline", "body", "icon", "cta", "label", "badge"]
+        },
+        "text": { "type": "string" },
+        "asset": { "type": "string" },
+        "animation": {
+          "type": "string",
+          "enum": ["fadeIn", "slideUp", "slideLeft", "slideRight", "scaleIn", "highlight", "pulse"]
+        },
+        "style": { "type": "string" }
+      }
+    },
+    "infographicStep": {
+      "type": "object",
+      "required": ["label"],
+      "properties": {
+        "label": { "type": "string" },
+        "icon": { "type": "string" },
+        "animation": { "type": "string" },
+        "startMs": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

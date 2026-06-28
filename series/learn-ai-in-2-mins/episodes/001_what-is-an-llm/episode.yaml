@@ -1,0 +1,225 @@
+episode:
+  id: "001"
+  slug: what-is-an-llm
+  title: "What is an LLM?"
+  targetDurationMs: 90000
+  series: "Learn AI in 2 Mins"
+  tone: "simple metaphor + infographic"
+  wordCount: 218
+  templateRefs:
+    welcome: "../../templates/welcome.yaml"
+    outro: "../../templates/outro.yaml"
+
+scenes:
+  - id: welcome
+    type: series_intro
+    durationMs: 6000
+    voiceover: >
+      Welcome to Learn AI in 2 Mins — quick concepts, simple metaphors, zero jargon overload.
+    captions:
+      - text: "Welcome to Learn AI in 2 Mins"
+        startMs: 0
+        endMs: 2800
+      - text: "Quick concepts. Simple metaphors."
+        startMs: 2800
+        endMs: 6000
+    visual:
+      layout: branded_card
+      background: gradient_dark_blue
+      elements:
+        - type: icon
+          asset: lightbulb_brain
+          animation: scaleIn
+        - type: title
+          text: "Learn AI in 2 Mins"
+          animation: fadeIn
+        - type: subtitle
+          text: "Quick concepts. Simple metaphors."
+          animation: slideUp
+    audio:
+      music: series_intro_sting
+      sfx:
+        - asset: soft_whoosh
+          startMs: 0
+
+  - id: hook
+    type: question_hook
+    durationMs: 8000
+    voiceover: >
+      You probably use ChatGPT every day. But what actually IS a Large Language Model?
+    captions:
+      - text: "You use ChatGPT every day."
+        startMs: 0
+        endMs: 3200
+      - text: "But what IS a Large Language Model?"
+        startMs: 3200
+        endMs: 8000
+    visual:
+      layout: split
+      background: dark_slate
+      left:
+        type: icon
+        asset: chat_bubble
+        animation: scaleIn
+      right:
+        type: headline
+        text: "What IS a Large Language Model?"
+        animation: slideLeft
+      elements:
+        - type: label
+          text: "Episode 001"
+          animation: fadeIn
+          style: badge_top_right
+    audio:
+      music: ambient_pulse_low
+
+  - id: metaphor_core
+    type: concept_explain
+    durationMs: 54000
+    voiceover: >
+      Think of an LLM like autocomplete on steroids. You type a few words — your phone
+      suggests the next one. An LLM does the same thing, but at massive scale. It was
+      trained on billions of words from books, articles, and the web. It learned patterns
+      — how words usually follow other words. So when you ask a question, it doesn't look
+      things up. It predicts the most likely next word, then the next, and the next — until
+      it forms a full answer. It's not a search engine. It's not a human brain. It's a
+      pattern-prediction machine — and that's what makes it so powerful.
+    captions:
+      - text: "Think of an LLM like autocomplete on steroids."
+        startMs: 0
+        endMs: 5000
+      - text: "Your phone suggests the next word."
+        startMs: 5000
+        endMs: 9000
+      - text: "An LLM does the same — at massive scale."
+        startMs: 9000
+        endMs: 14000
+      - text: "Trained on billions of words."
+        startMs: 14000
+        endMs: 19000
+      - text: "Books. Articles. The web."
+        startMs: 19000
+        endMs: 23000
+      - text: "It learned patterns — not facts."
+        startMs: 23000
+        endMs: 28000
+      - text: "How words usually follow other words."
+        startMs: 28000
+        endMs: 33000
+      - text: "It doesn't look things up."
+        startMs: 33000
+        endMs: 37000
+      - text: "It predicts the next word… then the next…"
+        startMs: 37000
+        endMs: 43000
+      - text: "…until it forms a full answer."
+        startMs: 43000
+        endMs: 47000
+      - text: "Not a search engine. Not a brain."
+        startMs: 47000
+        endMs: 51000
+      - text: "A pattern-prediction machine."
+        startMs: 51000
+        endMs: 54000
+    visual:
+      layout: infographic_stack
+      background: gradient_purple_blue
+      metaphor: "LLM = super-powered autocomplete"
+      elements:
+        - type: headline
+          text: "LLM = Autocomplete on Steroids"
+          animation: fadeIn
+      steps:
+        - label: "You type a prompt"
+          icon: keyboard
+          animation: slideUp
+          startMs: 0
+        - label: "Model predicts next word"
+          icon: arrow_right
+          animation: slideUp
+          startMs: 9000
+        - label: "Repeats word by word"
+          icon: loop
+          animation: slideUp
+          startMs: 18000
+        - label: "Full answer appears"
+          icon: chat_bubble_complete
+          animation: scaleIn
+          startMs: 37000
+      callout:
+        text: "Not a search engine. Not a brain."
+        style: highlight_red
+    audio:
+      music: ambient_pulse_mid
+      sfx:
+        - asset: typing_clicks
+          startMs: 0
+        - asset: word_pop
+          startMs: 37000
+
+  - id: recap
+    type: key_takeaway
+    durationMs: 12000
+    voiceover: >
+      So remember — an LLM predicts the most likely next words based on patterns it
+      learned from text. Powerful, but not magic.
+    captions:
+      - text: "An LLM predicts the next words"
+        startMs: 0
+        endMs: 4500
+      - text: "Based on patterns from training text"
+        startMs: 4500
+        endMs: 8500
+      - text: "Powerful — but not magic."
+        startMs: 8500
+        endMs: 12000
+    visual:
+      layout: summary_card
+      background: dark_slate
+      bullets:
+        - "Predicts next words"
+        - "Learned from text patterns"
+        - "Not stored facts"
+      elements:
+        - type: title
+          text: "Key Takeaway"
+          animation: fadeIn
+        - type: badge
+          text: "LLM = Pattern Predictor"
+          animation: highlight
+    audio:
+      music: ambient_pulse_low
+
+  - id: outro
+    type: series_outro
+    durationMs: 10000
+    voiceover: >
+      That's your concept for today. Follow for the next one — Learn AI in 2 Mins.
+    captions:
+      - text: "That's your concept for today."
+        startMs: 0
+        endMs: 3500
+      - text: "Follow for the next one"
+        startMs: 3500
+        endMs: 6500
+      - text: "Learn AI in 2 Mins"
+        startMs: 6500
+        endMs: 10000
+    visual:
+      layout: branded_card
+      background: gradient_dark_blue
+      elements:
+        - type: cta
+          text: "Follow for the next concept"
+          animation: pulse
+        - type: title
+          text: "Learn AI in 2 Mins"
+          animation: fadeIn
+        - type: badge
+          text: "Next: What is a Neural Network?"
+          animation: slideUp
+    audio:
+      music: series_outro_sting
+      sfx:
+        - asset: subscribe_pop
+          startMs: 3500

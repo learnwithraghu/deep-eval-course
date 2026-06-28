@@ -1,0 +1,36 @@
+# Shared series intro — reuse in every episode's first scene
+template:
+  id: welcome
+  type: series_intro
+  durationMs: 6000
+
+voiceover: >
+  Welcome to Learn AI in 2 Mins — quick concepts, simple metaphors, zero jargon overload.
+
+captions:
+  - text: "Welcome to Learn AI in 2 Mins"
+    startMs: 0
+    endMs: 2800
+  - text: "Quick concepts. Simple metaphors."
+    startMs: 2800
+    endMs: 6000
+
+visual:
+  layout: branded_card
+  background: gradient_dark_blue
+  elements:
+    - type: icon
+      asset: lightbulb_brain
+      animation: scaleIn
+    - type: title
+      text: "Learn AI in 2 Mins"
+      animation: fadeIn
+    - type: subtitle
+      text: "Quick concepts. Simple metaphors."
+      animation: slideUp
+
+audio:
+  music: series_intro_sting
+  sfx:
+    - asset: soft_whoosh
+      startMs: 0
