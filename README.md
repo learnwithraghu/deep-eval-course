@@ -8,13 +8,16 @@ You record the voice. Remotion builds the video.
 
 1. Read `voiceover.md` in the episode folder
 2. Record → save as `voiceover.mp3` in the same folder
-3. Run `npm run video:001` or paste the prompt from `create-video.prompt.md`
+3. **Session 1:** paste prompt from `plan-video.prompt.md` → generates `render-video.prompt.md`
+4. **Session 2:** paste prompt from `render-video.prompt.md` → builds the video
+
+Or skip AI planning: `npm run video:001`
 
 ## Structure
 
 ```
 youtube-ai-shorts-series/
-├── guide.md                    # 5-step workflow
+├── guide.md                    # 6-step workflow
 ├── package.json                # npm run video:001
 ├── remotion/                   # video engine (you rarely touch this)
 └── series/learn-ai-in-2-mins/
@@ -22,14 +25,15 @@ youtube-ai-shorts-series/
         └── 001_what-is-an-llm/
             ├── voiceover.md           ← read & record
             ├── voiceover.mp3          ← you add this
-            ├── create-video.prompt.md ← AI prompt (copy-paste)
+            ├── plan-video.prompt.md   ← Session 1 (plan visuals)
+            ├── render-video.prompt.md ← Session 2 (generated, build video)
             └── episode.yaml           ← scene script (done)
 ```
 
 ## Commands
 
 ```bash
-npm run video:001                              # render Episode 001
+npm run video:001                              # render Episode 001 (no AI planning)
 npm run video -- 002_what-is-a-neural-network  # future episodes
 cd remotion && npm run dev:001                 # preview (optional)
 ```

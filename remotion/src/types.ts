@@ -38,13 +38,24 @@ export type InfographicStep = {
   startMs?: number;
 };
 
+export type ContextIcon = {
+  name: string;
+  startMs?: number;
+  x?: string;
+  y?: string;
+};
+
 export type SceneVisual = {
   layout: string;
   background?: string;
   metaphor?: string;
+  hookLabel?: string;
   elements?: VisualElement[];
   steps?: InfographicStep[];
   bullets?: string[];
+  bulletIcons?: string[];
+  contextIcons?: ContextIcon[];
+  calloutIcons?: string[];
   callout?: { text: string; style?: string };
   left?: VisualElement;
   right?: VisualElement;

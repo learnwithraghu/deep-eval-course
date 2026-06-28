@@ -12,6 +12,42 @@ Every episode in this series follows the same look and motion language. When bui
 | Font | Inter (via `@remotion/google-fonts`) |
 | Base background | `#0f172a` (slate-900) |
 
+## Visual-first, medium text
+
+Every episode should feel **infographic-heavy and visualization-heavy** — stunning visuals that stop the scroll, with medium-density text on screen. The voiceover carries the explanation; the screen shows the story.
+
+| Principle | Rule |
+|-----------|------|
+| Screen real estate | ~70% visuals / diagrams / icons, ~30% text |
+| Headlines | Max 6 words |
+| Step labels | Max 5 words each; let the icon carry meaning |
+| On-screen text | Medium density — short phrases, not paragraphs |
+| Captions | Medium-sized readable pills (34px); narration does the explaining |
+| Viral Shorts feel | One bold visual metaphor per concept scene; stagger reveals synced to VTT beats |
+
+When planning visuals from a transcript, prioritize icon stacks, staggered infographic steps, and metaphor labels over long on-screen copy.
+
+## Visual differentiation (mandatory)
+
+**Each episode must look visually distinct from the previous 4 episodes.** Before planning, read the `visual:` blocks (hook, `metaphor_core`, recap) from the prior 4 `episode.yaml` files.
+
+Vary this episode on **at least 3** of these axes:
+
+| Axis | What to vary |
+|------|----------------|
+| Hook icon | `left.asset` — avoid repeating the same hero icon as recent episodes |
+| Hook sub-label | Optional `hookLabel` under the headline (topic chip, not a generic label) |
+| Metaphor | Family + phrasing — e.g. autocomplete, nesting dolls, assembly line, exam day, subway map, recipe layers |
+| Step icon sequence | All 4 step icons — **do not** default to `keyboard → arrow_right → loop → chat_bubble_complete` |
+| Callout treatment | Callout text + optional `calloutIcons` pair |
+| Recap | Badge shorthand + optional `bulletIcons` for the 3 bullets |
+
+**Good variety examples:** Episode A uses `chat_bubble` + autocomplete metaphor + `keyboard/arrow/loop/chat_bubble_complete`; Episode B uses `neural` + subway-map metaphor + `neural/sparkle/chip/check` + `calloutIcons: [neural, chip]`.
+
+**Bad (too similar):** Same hook icon, same 4-step icon sequence, and same metaphor family as any of the last 4 episodes.
+
+Document which axes you changed vs the prior 4 in `render-video.prompt.md` under a **Differentiation check** subsection.
+
 ## Five-scene arc (same every episode)
 
 | # | Scene type | ~Duration | Background | Purpose |
@@ -69,18 +105,20 @@ Use only these animation names in `episode.yaml` — each maps to a Remotion com
 ### `split` (question hook)
 - Left: large icon (scaleIn)
 - Right: headline (slideLeft)
+- Optional `hookLabel` — topic chip under headline (episode-specific, not hardcoded)
 - Top-right badge: "Episode NNN" (fadeIn)
 
 ### `infographic_stack` (concept explain)
 - Headline at top (fadeIn)
 - Metaphor label below headline
 - Steps stack vertically with staggered `slideUp` reveals timed to narration (`startMs`)
-- Optional callout pill (`highlight_red`) near the end
+- Optional floating `contextIcons` (name, startMs, x, y) in the scene background
+- Optional callout pill (`highlight_red`) near the end; optional `calloutIcons` (up to 2 icon names)
 
-### `summary_card` (key takeaway)
+### `summary_card` (key_takeaway)
 - "Key Takeaway" title (fadeIn)
 - Highlight badge with metaphor shorthand
-- Up to 3 bullets (staggered slideUp)
+- Up to 3 bullets (staggered slideUp); optional `bulletIcons` per bullet
 
 ## Captions
 

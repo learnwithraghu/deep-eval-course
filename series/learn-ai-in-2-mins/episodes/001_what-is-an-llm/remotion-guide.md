@@ -48,11 +48,14 @@ series/learn-ai-in-2-mins/episodes/001_what-is-an-llm/voiceover.mp3
 
 Sync automatically copies it into Remotion when you render.
 
-### Step 2 — Create the video
+### Step 2 — Plan and create the video
 
-**Option A:** `npm run video:001` from repo root
+**Two-session AI workflow (recommended):**
 
-**Option B:** Copy prompt from [`create-video.prompt.md`](create-video.prompt.md) into your AI terminal tool
+1. Session 1: copy prompt from [`plan-video.prompt.md`](plan-video.prompt.md) → generates [`render-video.prompt.md`](render-video.prompt.md)
+2. Session 2: copy prompt from `render-video.prompt.md` → builds the video
+
+**Quick alternative:** `npm run video:001` from repo root (skips viral visual planning)
 
 Output: `remotion/out/001_what-is-an-llm.mp4`
 

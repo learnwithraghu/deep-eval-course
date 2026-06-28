@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 /**
- * Generates episode assets (episode.yaml, voiceover.md, create-video.prompt.md)
+ * Generates episode assets (episode.yaml, voiceover.md, plan-video.prompt.md)
  * Usage: node scripts/generate-episodes.mjs
+ *
+ * Visual scaffolding defaults are starting points only — Session 1 planning must
+ * apply the Visual differentiation rule in visual-style.md (vary from prior 4 episodes).
  */
 import fs from "fs";
 import path from "path";
@@ -598,79 +601,139 @@ ${paragraphs.join("\n\n")}
 ## Next step
 
 1. Save recording as \`voiceover.mp3\` in this folder
-2. Open [\`create-video.prompt.md\`](create-video.prompt.md) and paste the prompt into your AI tool
+2. Open [\`plan-video.prompt.md\`](plan-video.prompt.md) and paste the prompt into your AI tool (Session 1 — plans visuals)
+3. In your next session, open the generated [\`render-video.prompt.md\`](render-video.prompt.md) and paste that prompt (Session 2 — builds video)
 
-Or run: \`npm run video:${ep.id}\` from repo root
+Or skip AI planning and run: \`npm run video:${ep.id}\` from repo root
 `;
 }
 
-function buildCreateVideoPrompt(ep) {
-  return `# Create Video — Episode ${ep.id}
+function buildPlanVideoPrompt(ep) {
+  return `# Plan Video — Episode ${ep.id}
 
-**When to use:** After you've saved \`voiceover.mp3\` in this folder.
+**When to use:** Session 1 — after you've saved \`voiceover.mp3\` in this folder.
 
 Copy everything in the box below into your AI terminal tool (Cursor, Claude Code, etc.).
+
+This session transcribes your recording, designs a transcript-specific viral visual plan (must differ from the prior 4 episodes — see visual-style.md), verifies it against the style guide, and writes \`render-video.prompt.md\` for Session 2.
+
+**Do NOT render or modify \`episode.yaml\` in this session.**
 
 ---
 
 ## Prompt (copy from here)
 
 \`\`\`
-Create the YouTube Short video for Episode ${ep.id}: "${ep.title}"
+Plan the YouTube Short video for Episode ${ep.id}: "${ep.title}"
 
 My voiceover is ready at:
 series/learn-ai-in-2-mins/episodes/${ep.folder}/voiceover.mp3
 
-## Workflow (follow in order)
+## Step 1 — Transcribe
 
-1. Transcribe my MP3 → VTT (accurate caption timing from my actual recording):
-   cd remotion && npm run vtt -- ${ep.folder}
+Transcribe my MP3 to VTT (accurate caption timing from my actual recording):
 
-2. Apply VTT timings to episode.yaml (captions + scene durations):
-   node scripts/apply-vtt-to-episode.mjs ${ep.folder}
+cd remotion && npm run vtt -- ${ep.folder}
 
-3. Render the video:
-   cd .. && npm run video:${ep.id}
+Confirm voiceover.vtt exists at:
+series/learn-ai-in-2-mins/episodes/${ep.folder}/voiceover.vtt
 
-   Or all-in-one from repo root: npm run video:${ep.id}
-   (render automatically runs steps 1–2 before syncing and rendering)
+## Step 2 — Design viral visual plan from transcript
 
-## Visual style (keep consistent across the course)
+Read these files:
+- voiceover.vtt (my actual recording — timing and words)
+- episode.yaml (current scene script in this folder)
+- series/learn-ai-in-2-mins/visual-style.md (brand rules)
 
-Read and follow: series/learn-ai-in-2-mins/visual-style.md
+For THIS specific transcript, design an infographic-heavy, medium-text visual plan:
 
-Every episode uses the same five-scene arc and animation language:
-- Scene 1 \`series_intro\` — branded card on gradient_dark_blue, floating icons
-- Scene 2 \`question_hook\` — split layout, icon left + headline right, episode badge
-- Scene 3 \`concept_explain\` — infographic_stack on gradient_purple_blue, staggered steps
-- Scene 4 \`key_takeaway\` — summary card, 3 bullets max
-- Scene 5 \`series_outro\` — branded card, follow CTA + next episode teaser
+- Hook visual: icon + headline combo for max scroll-stop (question_hook scene)
+- Concept scene: infographic steps timed to actual VTT narration beats (startMs per cue)
+- Icon choices from existing set only (keyboard, arrow_right, loop, brain, chat_bubble, chat_bubble_complete, chip, sparkle, neural, etc.)
+- One memorable metaphor visual (e.g. assembly line, nesting dolls, autocomplete)
+- Recap: 3 bullets max, badge shorthand (key_takeaway scene)
 
-Animations: fadeIn, slideUp, slideLeft, scaleIn, pulse, highlight only.
-Do not change the visual pattern — only sync timing from voiceover.vtt.
+Rules:
+- Infographic-heavy, visualization-heavy, medium text on screen
+- Headlines max 6 words; step labels max 5 words
+- Minimize on-screen words; let icons and staggered reveals tell the story
+- Voiceover carries the explanation; screen shows the visual story
 
-Episode-specific visual spec: remotion-guide.md in this folder.
+## Anti-repetition condition (mandatory)
 
-## Output
+Read the visual: blocks (hook, metaphor_core, recap) from the last 4 episode folders before this one under:
+series/learn-ai-in-2-mins/episodes/
 
-- voiceover.vtt — generated captions from my recording
-- remotion/out/${ep.folder}.mp4 — 1080×1920 vertical video
+Your design MUST differ from those episodes on at least 3 axes listed in visual-style.md (Visual differentiation):
+- hook icon (+ optional hookLabel sub-chip)
+- metaphor family and phrasing
+- step icon sequence (do NOT default to keyboard → arrow_right → loop → chat_bubble_complete)
+- callout visual treatment (text + optional calloutIcons)
+- recap badge + bulletIcons
 
-If render fails, diagnose and fix, then re-run npm run video:${ep.id}.
-When done, confirm voiceover.vtt and the output MP4 exist and tell me the paths.
+Document which axes you varied vs each of the last 4 episodes in render-video.prompt.md (Differentiation check section).
+If fewer than 4 prior episodes exist, vary from all available prior episodes.
+
+## Step 3 — Render feasibility check
+
+Before writing output, verify the plan against these hard constraints:
+
+- Colors: only palette in visual-style.md (#0f172a, #f8fafc, #94a3b8, #818cf8, #f87171)
+- Backgrounds: gradient_dark_blue, gradient_purple_blue, dark_slate only
+- Animations: fadeIn, slideUp, slideLeft, scaleIn, pulse, highlight only
+- Layouts: branded_card, split, infographic_stack, summary_card only
+- Format: 1080×1920, five-scene arc unchanged
+- If any idea needs new Remotion components, downgrade to existing layouts
+
+Document pass/fail for colors, layouts, and animations in the output.
+
+## Step 4 — Write render-video.prompt.md
+
+Write the render prompt to:
+series/learn-ai-in-2-mins/episodes/${ep.folder}/render-video.prompt.md
+
+Use this structure (fill in all sections from your transcript-specific plan):
+
+# Render Video — Episode ${ep.id}: ${ep.title} (generated from your recording)
+
+## Visual brief (transcript-specific)
+- Hook visual: icon, headline lines, scroll-stop angle
+- Metaphor: label + headline for concept scene
+- Concept steps: table with label (max 5 words), icon, startMs from VTT
+- Callout pill text
+- Recap bullets + badge
+- Viral angle: why this visual plan will stop the scroll
+
+## Render verification (pre-checked)
+- Colors: pass/fail + notes
+- Layouts: pass/fail + notes
+- Animations: pass/fail + notes
+
+## Prompt (copy from here)
+[Full Session 2 block with these steps:]
+1. cd remotion && node scripts/apply-vtt-to-episode.mjs ${ep.folder}
+2. Update episode.yaml VISUAL FIELDS ONLY per the visual brief (steps, icons, headlines, callout — not voiceover text)
+3. npm run video:${ep.id} from repo root
+4. Confirm voiceover.vtt and remotion/out/${ep.folder}.mp4 exist
+
+Reference template: series/learn-ai-in-2-mins/templates/render-video.prompt.template.md
+
+## Do NOT in this session
+- Do NOT modify episode.yaml
+- Do NOT run npm run video:${ep.id} or render
+
+When done, tell me: "Open render-video.prompt.md in your next session to build the video."
 \`\`\`
 
 ---
 
-## Manual alternative (no AI)
+## Manual alternative (skip AI planning)
 
 \`\`\`bash
 npm run video:${ep.id}
 \`\`\`
 
-Output: \`remotion/out/${ep.folder}.mp4\`
-
-Intermediate: \`voiceover.vtt\` (auto-generated from your MP3)
+Skips viral visual planning — transcribes, syncs timing, and renders with existing episode.yaml visuals.
 `;
 }
 
@@ -679,7 +742,7 @@ for (const ep of episodes) {
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, "episode.yaml"), buildEpisodeYaml(ep));
   fs.writeFileSync(path.join(dir, "voiceover.md"), buildVoiceoverMd(ep));
-  fs.writeFileSync(path.join(dir, "create-video.prompt.md"), buildCreateVideoPrompt(ep));
+  fs.writeFileSync(path.join(dir, "plan-video.prompt.md"), buildPlanVideoPrompt(ep));
   console.log(`Generated ${ep.folder}`);
 }
 

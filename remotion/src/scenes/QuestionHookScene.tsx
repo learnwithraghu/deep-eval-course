@@ -19,6 +19,7 @@ export const QuestionHookScene: React.FC<{ scene: Scene }> = ({ scene }) => {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
+  const hookIcon = visual.left?.asset ?? "chip";
 
   return (
     <BrandedBackground background={visual.background}>
@@ -59,24 +60,26 @@ export const QuestionHookScene: React.FC<{ scene: Scene }> = ({ scene }) => {
             {visual.right ? (
               <div style={{ flex: 1 }}>
                 <AnimatedElement {...visual.right} delayFrames={10} />
-                <div style={{ ...chipStyle, marginTop: 28, display: "flex", justifyContent: "flex-start" }}>
-                  <div
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: 12,
-                      background: colors.card,
-                      border: `1px solid ${colors.cardBorder}`,
-                      borderRadius: 14,
-                      padding: "10px 18px",
-                    }}
-                  >
-                    <Icon name="chip" size={32} glow />
-                    <span style={{ color: colors.muted, fontSize: 22, fontWeight: 600 }}>
-                      Large Language Model
-                    </span>
+                {visual.hookLabel ? (
+                  <div style={{ ...chipStyle, marginTop: 28, display: "flex", justifyContent: "flex-start" }}>
+                    <div
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 12,
+                        background: colors.card,
+                        border: `1px solid ${colors.cardBorder}`,
+                        borderRadius: 14,
+                        padding: "10px 18px",
+                      }}
+                    >
+                      <Icon name={hookIcon} size={32} glow />
+                      <span style={{ color: colors.muted, fontSize: 22, fontWeight: 600 }}>
+                        {visual.hookLabel}
+                      </span>
+                    </div>
                   </div>
-                </div>
+                ) : null}
               </div>
             ) : null}
           </div>

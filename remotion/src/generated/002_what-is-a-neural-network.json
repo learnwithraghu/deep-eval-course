@@ -3,7 +3,7 @@
     "id": "002",
     "slug": "what-is-a-neural-network",
     "title": "What is a Neural Network?",
-    "targetDurationMs": 90000,
+    "targetDurationMs": 75480,
     "series": "Learn AI in 2 Mins",
     "tone": "simple metaphor + infographic",
     "wordCount": 215,
@@ -16,18 +16,23 @@
     {
       "id": "welcome",
       "type": "series_intro",
-      "durationMs": 6000,
+      "durationMs": 5032,
       "voiceover": "Welcome to Learn AI in 2 Mins — quick concepts, simple metaphors, zero jargon overload.\n",
       "captions": [
         {
-          "text": "Welcome to Learn AI in 2 Mins",
+          "text": "Welcome to Learn AI in 2",
           "startMs": 0,
-          "endMs": 2800
+          "endMs": 1840
         },
         {
-          "text": "Quick concepts. Simple metaphors.",
-          "startMs": 2800,
-          "endMs": 6000
+          "text": "minutes.",
+          "startMs": 1840,
+          "endMs": 2640
+        },
+        {
+          "text": "Quick concept, simple metaphors and zeroes are",
+          "startMs": 2840,
+          "endMs": 5032
         }
       ],
       "visual": {
@@ -55,31 +60,42 @@
     {
       "id": "hook",
       "type": "question_hook",
-      "durationMs": 8000,
+      "durationMs": 6709,
       "voiceover": "You hear neural networks everywhere in AI. But what actually IS one?\n",
       "captions": [
         {
-          "text": "Neural networks are everywhere.",
-          "startMs": 0,
-          "endMs": 3200
+          "text": "gone over",
+          "startMs": 328,
+          "endMs": 1128
         },
         {
-          "text": "But what IS a Neural Network?",
-          "startMs": 3200,
-          "endMs": 8000
+          "text": "-road.",
+          "startMs": 848,
+          "endMs": 1648
+        },
+        {
+          "text": "You hear neural network everywhere in AI, but what actually is",
+          "startMs": 1808,
+          "endMs": 6148
+        },
+        {
+          "text": "one?",
+          "startMs": 6148,
+          "endMs": 6709
         }
       ],
       "visual": {
         "layout": "split",
         "background": "dark_slate",
+        "hookLabel": "Neural Network",
         "left": {
           "type": "icon",
-          "asset": "brain",
+          "asset": "neural",
           "animation": "scaleIn"
         },
         "right": {
           "type": "headline",
-          "text": "But what IS a Neural Network",
+          "text": "But what IS a Neural Network?",
           "animation": "slideLeft"
         },
         "elements": [
@@ -95,106 +111,180 @@
     {
       "id": "metaphor_core",
       "type": "concept_explain",
-      "durationMs": 54000,
+      "durationMs": 45288,
       "voiceover": "Think of a neural network like an assembly line of decision-makers. Data enters at one end — maybe a photo or a sentence. The first layer catches simple patterns — edges, basic shapes, or common word pairs. Each layer passes its findings to the next, which spots more complex patterns. By the final layer, the network combines all those signals into an answer — cat or dog, spam or not spam. It's inspired by the brain, but much simpler — just math layers stacked on top of each other. No single layer is smart alone. The power comes from the stack — many simple steps building up to something useful.\n",
       "captions": [
         {
-          "text": "Think of a neural network like an assembly line.",
-          "startMs": 0,
-          "endMs": 4500
+          "text": "Think of neural network like an assembly line of decision",
+          "startMs": 639,
+          "endMs": 3399
         },
         {
-          "text": "Data enters — a photo or a sentence.",
-          "startMs": 4500,
-          "endMs": 8500
+          "text": "makers.",
+          "startMs": 3399,
+          "endMs": 4199
         },
         {
-          "text": "Layer 1 catches simple patterns.",
-          "startMs": 8500,
-          "endMs": 13000
+          "text": "Data enters at one end, maybe a photo or a",
+          "startMs": 4559,
+          "endMs": 7479
         },
         {
-          "text": "Each layer passes findings to the next.",
-          "startMs": 13000,
-          "endMs": 17500
+          "text": "sentence.",
+          "startMs": 7439,
+          "endMs": 8239
         },
         {
-          "text": "Deeper layers spot complex patterns.",
-          "startMs": 17500,
-          "endMs": 22000
+          "text": "The first layer catches simple patterns, edges,",
+          "startMs": 8439,
+          "endMs": 11419
         },
         {
-          "text": "Final layer combines everything.",
-          "startMs": 22000,
-          "endMs": 26500
+          "text": "basic shapes, or common world",
+          "startMs": 12139,
+          "endMs": 14099
         },
         {
-          "text": "Output: cat or dog, spam or not spam.",
-          "startMs": 26500,
-          "endMs": 31000
+          "text": "pairs.",
+          "startMs": 14099,
+          "endMs": 14899
         },
         {
-          "text": "Inspired by the brain — but simpler.",
-          "startMs": 31000,
-          "endMs": 35000
+          "text": "Each layer passes its finding to the",
+          "startMs": 15179,
+          "endMs": 17679
         },
         {
-          "text": "Just math layers stacked together.",
-          "startMs": 35000,
-          "endMs": 39000
+          "text": "next, which spots more complex",
+          "startMs": 17679,
+          "endMs": 19999
         },
         {
-          "text": "No single layer is smart alone.",
-          "startMs": 39000,
-          "endMs": 43000
+          "text": "patterns.",
+          "startMs": 19999,
+          "endMs": 20799
         },
         {
-          "text": "Power comes from the stack.",
-          "startMs": 43000,
-          "endMs": 47000
+          "text": "By the final layer, the network combines",
+          "startMs": 21259,
+          "endMs": 23979
         },
         {
-          "text": "Simple steps → useful answer.",
-          "startMs": 47000,
-          "endMs": 54000
+          "text": "all those signals into an",
+          "startMs": 23979,
+          "endMs": 26559
+        },
+        {
+          "text": "answer.",
+          "startMs": 26559,
+          "endMs": 27359
+        },
+        {
+          "text": "A cat or a dog, a spam or not spam, for",
+          "startMs": 27719,
+          "endMs": 30859
+        },
+        {
+          "text": "example.",
+          "startMs": 30859,
+          "endMs": 31659
+        },
+        {
+          "text": "It's inspired by the brain, but much, much",
+          "startMs": 31939,
+          "endMs": 35319
+        },
+        {
+          "text": "simpler.",
+          "startMs": 35059,
+          "endMs": 35859
+        },
+        {
+          "text": "It is just math layers stacked on each",
+          "startMs": 36239,
+          "endMs": 39299
+        },
+        {
+          "text": "other.",
+          "startMs": 38799,
+          "endMs": 39599
+        },
+        {
+          "text": "No single layer is smart alone, the power comes with the",
+          "startMs": 39619,
+          "endMs": 43619
+        },
+        {
+          "text": "stack.",
+          "startMs": 43619,
+          "endMs": 44419
+        },
+        {
+          "text": "Many simple steps building up to something",
+          "startMs": 45099,
+          "endMs": 45288
         }
       ],
       "visual": {
         "layout": "infographic_stack",
         "background": "gradient_purple_blue",
-        "metaphor": "Neural network = assembly line of pattern detectors",
+        "metaphor": "Subway map — transfer at each station",
         "elements": [
           {
             "type": "headline",
-            "text": "Neural Network = Layered Pattern Detector",
+            "text": "Layers = Stations on the Line",
             "animation": "fadeIn"
+          }
+        ],
+        "contextIcons": [
+          {
+            "name": "chip",
+            "startMs": 12000,
+            "x": "10%",
+            "y": "22%"
+          },
+          {
+            "name": "sparkle",
+            "startMs": 18000,
+            "x": "80%",
+            "y": "30%"
+          },
+          {
+            "name": "pattern",
+            "startMs": 25000,
+            "x": "75%",
+            "y": "55%"
           }
         ],
         "steps": [
           {
-            "label": "Input enters (image, text…)",
-            "icon": "keyboard",
+            "label": "Data enters Station 1",
+            "icon": "pattern",
             "animation": "slideUp",
-            "startMs": 0
+            "startMs": 4559
           },
           {
-            "label": "Layer 1 spots simple patterns",
-            "icon": "arrow_right",
+            "label": "Transfer to deeper tracks",
+            "icon": "neural",
             "animation": "slideUp",
-            "startMs": 9000
+            "startMs": 8439
           },
           {
-            "label": "Deeper layers combine signals",
-            "icon": "loop",
+            "label": "More stops, more signals",
+            "icon": "sparkle",
             "animation": "slideUp",
-            "startMs": 18000
+            "startMs": 15179
           },
           {
-            "label": "Final layer outputs prediction",
-            "icon": "chat_bubble_complete",
-            "animation": "slideUp",
-            "startMs": 37000
+            "label": "Exit with final answer",
+            "icon": "check",
+            "animation": "scaleIn",
+            "startMs": 21259
           }
+        ],
+        "calloutIcons": [
+          "neural",
+          "chip"
         ],
         "callout": {
           "text": "Inspired by the brain — but it's just math.",
@@ -205,32 +295,37 @@
     {
       "id": "recap",
       "type": "key_takeaway",
-      "durationMs": 12000,
+      "durationMs": 10064,
       "voiceover": "So remember — a neural network is stacked layers that detect patterns step by step. Simple pieces, smart together.\n",
       "captions": [
         {
-          "text": "Stacked layers detect patterns",
-          "startMs": 0,
-          "endMs": 4500
+          "text": "useful.",
+          "startMs": 2051,
+          "endMs": 2851
         },
         {
-          "text": "Simple steps build to an answer",
-          "startMs": 4500,
-          "endMs": 8500
+          "text": "So remember, a neural network is stacked",
+          "startMs": 3591,
+          "endMs": 6171
         },
         {
-          "text": "Simple pieces, smart together.",
-          "startMs": 8500,
-          "endMs": 12000
+          "text": "layers that detect patterns step by step,",
+          "startMs": 6171,
+          "endMs": 9811
         }
       ],
       "visual": {
         "layout": "summary_card",
         "background": "dark_slate",
         "bullets": [
-          "Stacked layers of math",
-          "Each layer finds patterns",
-          "Output = combined prediction"
+          "Stacked layers detect patterns",
+          "Simple steps build the answer",
+          "Simple pieces, smart together"
+        ],
+        "bulletIcons": [
+          "neural",
+          "chip",
+          "check"
         ],
         "elements": [
           {
@@ -240,7 +335,7 @@
           },
           {
             "type": "badge",
-            "text": "NN = Layer Stack",
+            "text": "NN = Layered Signals",
             "animation": "highlight"
           }
         ]
@@ -249,23 +344,38 @@
     {
       "id": "outro",
       "type": "series_outro",
-      "durationMs": 10000,
+      "durationMs": 8387,
       "voiceover": "That's your concept for today. Follow for the next one — Learn AI in 2 Mins.\n",
       "captions": [
         {
-          "text": "That's your concept for today.",
-          "startMs": 0,
-          "endMs": 3500
+          "text": "and simple pieces are smart",
+          "startMs": 147,
+          "endMs": 2147
         },
         {
-          "text": "Follow for the next one",
-          "startMs": 3500,
-          "endMs": 6500
+          "text": "together.",
+          "startMs": 2147,
+          "endMs": 2947
         },
         {
-          "text": "Learn AI in 2 Mins",
-          "startMs": 6500,
-          "endMs": 10000
+          "text": "That's your concept of the",
+          "startMs": 3407,
+          "endMs": 4307
+        },
+        {
+          "text": "day.",
+          "startMs": 4307,
+          "endMs": 5107
+        },
+        {
+          "text": "Follow for the next one, journey AI in 2",
+          "startMs": 5007,
+          "endMs": 7727
+        },
+        {
+          "text": "minutes.",
+          "startMs": 7587,
+          "endMs": 8387
         }
       ],
       "visual": {

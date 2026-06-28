@@ -20,5 +20,6 @@ From repo root: `npm run video:001`
 
 ## Docs
 
-- [`../guide.md`](../guide.md) — your 5-step workflow
-- Episode prompt: [`../series/.../001.../create-video.prompt.md`](../series/learn-ai-in-2-mins/episodes/001_what-is-an-llm/create-video.prompt.md)
+- [`../guide.md`](../guide.md) — your 6-step workflow
+- Session 1 prompt: [`../series/.../001.../plan-video.prompt.md`](../series/learn-ai-in-2-mins/episodes/001_what-is-an-llm/plan-video.prompt.md)
+- Render template: [`../series/.../templates/render-video.prompt.template.md`](../series/learn-ai-in-2-mins/templates/render-video.prompt.template.md)

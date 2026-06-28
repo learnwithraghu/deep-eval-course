@@ -33,6 +33,7 @@ That's your concept for today. Follow for the next one — Learn AI in 2 Mins.
 ## Next step
 
 1. Save recording as `voiceover.mp3` in this folder
-2. Open [`create-video.prompt.md`](create-video.prompt.md) and paste the prompt into your AI tool
+2. Open [`plan-video.prompt.md`](plan-video.prompt.md) and paste the prompt into your AI tool (Session 1 — plans visuals)
+3. In your next session, open the generated [`render-video.prompt.md`](render-video.prompt.md) and paste that prompt (Session 2 — builds video)
 
-Or run: `npm run video:009` from repo root
+Or skip AI planning and run: `npm run video:009` from repo root

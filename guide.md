@@ -2,7 +2,7 @@
 
 You only need to **record your voice**. Everything else is already in the repo.
 
-## 5 steps
+## 6 steps
 
 ### 1. Open the voiceover script
 
@@ -24,30 +24,43 @@ series/learn-ai-in-2-mins/episodes/001_what-is-an-llm/voiceover.mp3
 
 That's it — one file, same folder as `voiceover.md`.
 
-### 4. Trigger video creation (pick one)
+### 4. Session 1 — Plan visuals (AI)
 
-**Option A — Terminal (no AI):**
+Open the episode folder and copy the prompt from:
+
+```
+series/learn-ai-in-2-mins/episodes/001_what-is-an-llm/plan-video.prompt.md
+```
+
+Paste it into Cursor / Claude Code / any AI terminal agent.
+
+Session 1 will:
+1. Transcribe your MP3 → `voiceover.vtt`
+2. Design a transcript-specific viral visual plan (infographic-heavy, medium text)
+3. Verify colors, layouts, and animations against the style guide
+4. Write `render-video.prompt.md` in the episode folder
+
+**Session 1 does not render or modify `episode.yaml`.**
+
+### 5. Session 2 — Build the video (AI)
+
+Open the generated file:
+
+```
+series/learn-ai-in-2-mins/episodes/001_what-is-an-llm/render-video.prompt.md
+```
+
+Paste the prompt block into your AI tool. Session 2 applies VTT timing, updates visuals in `episode.yaml`, and renders.
+
+**Option — Terminal (no AI, skip planning):**
 
 ```bash
 npm run video:001
 ```
 
-This automatically:
-1. Transcribes your MP3 → `voiceover.vtt`
-2. Syncs caption timing into `episode.yaml`
-3. Renders the video
+This automatically transcribes, syncs caption timing, and renders with existing `episode.yaml` visuals.
 
-**Option B — AI tool in terminal:**
-
-Open the episode folder and copy the prompt from:
-
-```
-series/learn-ai-in-2-mins/episodes/001_what-is-an-llm/create-video.prompt.md
-```
-
-Paste it into Cursor / Claude Code / any AI terminal agent.
-
-### 5. Get your video
+### 6. Get your video
 
 Output file:
 
@@ -68,7 +81,8 @@ episodes/001_what-is-an-llm/
 ├── voiceover.md              ← read & record from this
 ├── voiceover.mp3             ← you add this (step 3)
 ├── voiceover.vtt             ← auto-generated from MP3
-├── create-video.prompt.md    ← copy-paste into AI (step 4)
+├── plan-video.prompt.md      ← Session 1: paste into AI (step 4)
+├── render-video.prompt.md    ← Session 1 output → Session 2 input (step 5)
 ├── episode.yaml              ← scene script (timing synced from VTT)
 └── remotion-guide.md         ← technical reference (optional)
 ```
@@ -110,6 +124,7 @@ Series-wide visual pattern: [`series/learn-ai-in-2-mins/visual-style.md`](series
 | First render slow | Run `cd remotion && npm run setup:whisper` once (~150 MB model download) |
 | Faster transcription | Set `OPENAI_API_KEY` in `remotion/.env` to use OpenAI Whisper API |
 | Want to preview first | `cd remotion && npm run dev:001` |
+| No render-video.prompt.md | Run Session 1 first (`plan-video.prompt.md`) after saving your MP3 |
 
 ---
 
@@ -118,7 +133,8 @@ Series-wide visual pattern: [`series/learn-ai-in-2-mins/visual-style.md`](series
 Same flow every time:
 
 1. `voiceover.md` → record → `voiceover.mp3` in episode folder
-2. Copy prompt from `create-video.prompt.md`
-3. Run `npm run video -- {episode-folder}`
+2. Session 1: copy prompt from `plan-video.prompt.md`
+3. Session 2: copy prompt from generated `render-video.prompt.md`
+4. Or skip AI: `npm run video -- {episode-folder}`
 
-Each new episode gets its own `create-video.prompt.md` with the ready-to-use AI prompt.
+Each new episode gets its own `plan-video.prompt.md`. `render-video.prompt.md` is generated per recording.

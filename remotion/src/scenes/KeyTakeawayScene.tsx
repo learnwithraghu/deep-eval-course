@@ -7,10 +7,11 @@ import { Icon, IconName } from "../icons/Icon";
 import { colors } from "../theme";
 import { useSceneAnimation } from "../utils/animations";
 
-const BULLET_ICONS: IconName[] = ["predict", "pattern", "database_x"];
+const DEFAULT_BULLET_ICONS: IconName[] = ["predict", "pattern", "database_x"];
 
 export const KeyTakeawayScene: React.FC<{ scene: Scene }> = ({ scene }) => {
   const { visual, captions } = scene;
+  const bulletIcons = (visual.bulletIcons ?? DEFAULT_BULLET_ICONS) as IconName[];
 
   return (
     <BrandedBackground background={visual.background}>
@@ -43,7 +44,7 @@ export const KeyTakeawayScene: React.FC<{ scene: Scene }> = ({ scene }) => {
               key={bullet}
               text={bullet}
               index={index}
-              icon={BULLET_ICONS[index] ?? "check"}
+              icon={bulletIcons[index] ?? "check"}
             />
           ))}
         </div>

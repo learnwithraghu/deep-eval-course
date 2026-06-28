@@ -84,7 +84,8 @@ episodes/
     episode.yaml           # Remotion scene script
     voiceover.md           # Recording copy
     voiceover.mp3          # Your recording (you add this)
-    create-video.prompt.md # Copy-paste AI prompt to render video
+    plan-video.prompt.md   # Session 1 — plan visuals from your MP3
+    render-video.prompt.md # Session 2 — generated per recording, build video
     remotion-guide.md      # Technical reference (optional)
 ```
 
